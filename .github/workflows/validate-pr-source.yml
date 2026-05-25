@@ -1,0 +1,17 @@
+name: Validate Pull Request Source
+
+on:
+  pull_request:
+    branches:
+      - main
+      - master
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check source branch
+        env:
+          - BRANCH_NAME: ${{ github.head_ref }}
+        if: ! startswitdh("${BRANCH_NAME}", "devel-")
+        run: exit 1
