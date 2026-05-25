@@ -12,6 +12,6 @@ jobs:
     steps:
       - name: Check source branch
         env:
-          - BRANCH_NAME: ${{ github.head_ref }}
+          BRANCH_NAME: ${{ github.head_ref }}
         if: ! startswitdh("${BRANCH_NAME}", "devel-")
         run: exit 1
