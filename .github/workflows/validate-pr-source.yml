@@ -13,9 +13,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check source branch
-        if: ! startsWith(env.BRANCH_NAME, 'devel-')
+        if: ${{ ! startsWith(env.BRANCH_NAME, 'devel-') }}
         run: |
-          echo "Unexpected pull request source ${BRANCH_NAME}"
+          echo "Unexpected Pull Request source ${BRANCH_NAME}."
           exit 1
       - name: Check OK
         run: echo "Expected branch source was specified."
