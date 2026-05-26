@@ -14,4 +14,6 @@ jobs:
         env:
           BRANCH_NAME: ${{ github.head_ref }}
         if: ! startsWith(env.BRANCH_NAME, 'devel-')
-        run: exit 1
+        run: |
+          echo "Unexpected pull request source ${BRANCH_NAME}"
+          exit 1
